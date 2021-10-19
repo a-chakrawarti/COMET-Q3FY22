@@ -1,6 +1,34 @@
 # Basics of HTML with it's DOM structure
 
-#### Simple reset using universal selector CSS
+### What happens to CSS when we load a webpage?
+
+![load-css](./load-css.jpg)
+
+### Three pillars to write good HTML and CSS
+
+1. Responsive Design
+   - Fluid Layouts
+   - Media Queries
+   - Responsive Images
+   - Correct Units
+   - Desktop-first vs Mobile-first
+2. Maintainable and scalable code
+   - Clean
+   - Easy to Understand
+   - Growth
+   - Reusable
+   - How to organize files
+   - How to name classes
+   - How to structure HTML
+3. Web performance
+   - Less HTTP Requests
+   - Less Code
+   - Compress Code
+   - Use a CSS Preprocessor
+   - Less Images
+   - Compress Images
+
+### Simple reset using universal selector CSS
 
 ```css
 * {
@@ -20,7 +48,7 @@ body {
 }
 ```
 
-#### CSS | Clip-path property
+### CSS | Clip-path property
 
 - Clip path maker: https://bennettfeely.com/clippy/
 
@@ -95,8 +123,50 @@ The `transition` property has to be on the initial state
 
 # How CSS is parsed - Cascading and specificity
 
+**Cascade**: Process of combining different stylesheets and resolving conflicts between different CSS rules and declarations, when more than one rule applies to certain element.
+
+![specificity](./specificity.jpg)
+
+## Inheritence
+
+- Is a way of propagating property values from parent elements to their children.
+
+- Property related to text are inherited, for example, font-family, font-size, color etc.
+
+- The computed value of a property is inherited, not the declared value.
+
 # How CSS Renders a Website: The Visual Formatting Model
+
+Algorithm that calculates boxes and determines the layout of these boxes, for each element in the **render tree**, in order to determine the final layout of the page.
+
+1. Box Model
+2. Bpx Types: Block-level, Inline, Inline-block
+3. Positioning: Normal flow (position: relative), Float, Absolute
+4. Stacking Context: Example `z-index, opacity, transform etc`
 
 # CSS architecture, components and BEM
 
-### Github Repo: https://github.com/jonasschmedtmann/advanced-css-course
+1. Componenet-driven design (Atomic Design)
+2. BEM: Block Element Modifier
+
+```css
+.block {
+}
+
+.block__element {
+}
+
+.block_element--modifier {
+}
+```
+
+3. The 7-1 Pattern: 7 different folders for partial Sass files, and 1 main Sass file to import all other files into a compiled CSS stylesheet.
+   - base/
+   - components/
+   - layout/
+   - pages/
+   - themes/
+   - abstracts/
+   - vendors/
+
+## Github Repo: https://github.com/jonasschmedtmann/advanced-css-course
