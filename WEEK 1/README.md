@@ -35,6 +35,64 @@ clip-path: polygon(50% 0, 100% 100%, 0 100%);
 
 # Basics of CSS with overview of animations
 
+- CSS animation is done using keyframes at-rule (`@keyframes`) and `animation` property.
+
+## There a 2 types of animation in CSS
+
+### Simple: Using `transition` property
+
+The `transition` property has to be on the initial state
+
+```css
+.btn {
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  /* Offset in X, Offset in Y, Blur, color */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+```
+
+### Complex: Using `@keyframes`.
+
+```css
+.heading-primary-main {
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-delay: 3s;
+  animation-iteration-count: 3;
+  animation-timing-function: ease-out;
+}
+
+/* Animation shorthand */
+.heading-primary-sub {
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+```
+
 # How CSS is parsed - Cascading and specificity
 
 # How CSS Renders a Website: The Visual Formatting Model
