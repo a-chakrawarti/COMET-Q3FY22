@@ -140,7 +140,7 @@ The `transition` property has to be on the initial state
 Algorithm that calculates boxes and determines the layout of these boxes, for each element in the **render tree**, in order to determine the final layout of the page.
 
 1. Box Model
-2. Bpx Types: Block-level, Inline, Inline-block
+2. Box Types: Block-level, Inline, Inline-block
 3. Positioning: Normal flow (position: relative), Float, Absolute
 4. Stacking Context: Example `z-index, opacity, transform etc`
 
