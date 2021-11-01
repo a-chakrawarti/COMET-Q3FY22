@@ -1,3 +1,17 @@
+/* 
+0 - 600px: Phone (default- Mobile-First)
+600 - 900px: Tablet Portrait
+900 - 1200px: Tablet landscape
+1200 - 1800px: Desktop (default Desktop-First)
+1800px + : Big Desktop
+*/
+/*
+breakpoint arugument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -38,6 +52,15 @@
 html {
   /* 16px default, 62.5% will be calculated to 10px */
   font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   font-family: "Lato", sans-serif;
@@ -47,6 +70,9 @@ body {
   color: #777;
   padding: 3rem;
   box-sizing: border-box; }
+  @media (max-width: 56.25em) {
+    body {
+      padding: 0; } }
 
 .heading-primary {
   color: #fff;
@@ -63,12 +89,19 @@ body {
     /* animation-delay: 3s;
       animation-iteration-count: 3; */
     animation-timing-function: ease-out; }
+    @media (max-width: 37.5em) {
+      .heading-primary--main {
+        letter-spacing: 1rem;
+        font-size: 5rem; } }
   .heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out; }
+    @media (max-width: 37.5em) {
+      .heading-primary--sub {
+        letter-spacing: 0.5rem; } }
 
 .btn {
   /* After pseudo-class is considered a child of the element */ }
@@ -114,11 +147,17 @@ body {
 .header {
   /* At every point the height of this element will be 95% of viewport height */
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-small.jpg);
   background-size: cover;
   background-position: top;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    .header {
+      background-image: linear-gradient(to right bottom, rgba(255, 165, 0, 0.8), rgba(255, 165, 0, 0.8)), url(../img/hero.jpg); } }
+  @media (max-width: 37.5em) {
+    .header {
+      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); } }
   .header__logo-box {
     position: absolute;
     top: 4rem;

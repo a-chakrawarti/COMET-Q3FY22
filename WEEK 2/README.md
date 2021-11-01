@@ -138,3 +138,61 @@ html {
 ```
 
 # Responsive images in HTML, CSS with browser supports
+
+The goal of responsive images is to serve the **right image** to the **right screen size** and device, in order to avoid downloading unnecessary large images on smaller screens.
+
+### Use cases of Responsive Images
+
+- Resolution Switching: Decrease image resolution on smaller screen
+- Density Switching: Half the image resolution on @1x screen
+- Art Direction: Different image on smaller screen (images details were preserved but the image is different)
+
+#### Responsive Image in HTML
+
+1. Density Switching: If user has low density screen it will load the 1x image otherwise 2x.
+
+```html
+<!-- Density descriptor in `<img>` HTML  -->
+<img
+  srcset="images/picture-1x.png 1x, images/picture-2x.png 2x"
+  alt="picture"
+/>
+```
+
+2. Art Direction:
+
+```html
+<picture>
+  <source
+    srcset="images/picture-small-1x.png 1x, images/picture-small-2x.png 2x"
+    media="(max-width: 37.5em)"
+  />
+  <img
+    srcset="images/picture-1x.png 1x, images/picture-2x.png 2x"
+    alt="picture"
+  />
+</picture>
+```
+
+3. Resolution Switching & Density Switching:
+
+```html
+<img
+  srcset="img/pic-1.jpg 300w, img/pic-1-lg.jpg 1000w"
+  sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+  alt="picture"
+  src="img/pic-1-lg.jpg"
+/>
+```
+
+#### Responsive Images using CSS
+
+```scss
+.header {
+  background-image: url(./images/pic-small.jpg)
+    // when resolution is higher (192dpi) and width is greater than 600px, lower width screen would load the small pic as hq is not required
+    @media (min-resolution: 192dpi) and (min-width: 600px) {
+    background-image: url(./images/pic.jpg);
+  }
+}
+```
